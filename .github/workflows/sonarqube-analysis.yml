@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+      - shadil 
+      - shadilTest
   pull_request:
     branches:
       - main
+      - shadil 
+      - shadilTest
 
 jobs:
   sonar:

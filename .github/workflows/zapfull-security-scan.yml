@@ -2,16 +2,16 @@ name: zapfull-security-scan
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main, shadil, shadilTest ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, main, shadil, shadilTest ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:     
+    steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: OWASP ZAP Full Scan
       uses: zaproxy/action-full-scan@v0.10.0
