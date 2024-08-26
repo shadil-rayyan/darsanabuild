@@ -1,0 +1,47 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - shadil
+      - develop
+      - 'releases/**'
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # Disabling shallow clones is recommended for improving the relevancy of reporting
+          fetch-depth: 0
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Specify the Node.js version used by your project
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build project
+        run: npm run build # or use `next build` if you have a custom build script
+      
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v2.1.0 # Replace with the latest version if necessary
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          # Configure the SonarQube scanner parameters
+          extra-properties: |
+            sonar.projectKey=my-nextjs-project
+            sonar.sources=src
+            sonar.tests=src
+            sonar.test.inclusions=**/*.test.ts,**/*.test.tsx
+            sonar.typescript.lcov.reportPaths=coverage/lcov.info
+            sonar.projectVersion=${{ github.sha }}
