@@ -1,32 +1,33 @@
-import { NextResponse } from 'next/server';
-import { ProductsDb, products, InsertProduct } from '@/db/schema/product/products';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { db } from '@/db';  // Ensure you have a proper DB connection
+import { gallery } from '@/db/schema/Activites/gallery';
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    
-    const productData: InsertProduct = {
-      title: body.title,
-      description: body.description,
-      category: body.category,
-      typeValuePairs: body.typeValuePairs, // Accepting as a string
-      firstName: body.firstName,
-      companyName: body.companyName,
-      email: body.email,
-      phoneNumber: body.phoneNumber,
-      city: body.city,
-      state: body.state,
-      country: body.country,
-    };
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'POST') {
+    try {
+      const { title, selectedDate, selectedChapter, fileUrl, category } = req.body;
 
-    const result = await ProductsDb.insert(products).values(productData).returning();
+      // Create an object matching the gallery schema
+      const galleryData = {
+        name: title,
+        uploadDate: selectedDate,
+        chapter: selectedChapter,
+        photoUrl: fileUrl,
+        category: category,
+      };
 
-    return NextResponse.json({ message: 'Product added successfully', product: result[0] }, { status: 201 });
-  } catch (error: unknown) {
-    console.error('Error adding product:', error);
-    if (error instanceof Error) {
-      return NextResponse.json({ message: 'Error adding product', error: error.message }, { status: 500 });
+      // Insert the data using Drizzle ORM
+      const result = await db.insert(gallery).values(galleryData).returning();
+
+      return res.status(201).json({ message: 'Image metadata saved successfully', data: result[0] });
+    } catch (error: unknown) {
+      console.error('Error saving image metadata:', error);
+      if (error instanceof Error) {
+        return res.status(500).json({ message: 'Failed to save image metadata', error: error.message });
+      }
+      return res.status(500).json({ message: 'Failed to save image metadata', error: 'An unknown error occurred' });
     }
-    return NextResponse.json({ message: 'Error adding product', error: 'An unknown error occurred' }, { status: 500 });
+  } else {
+    return res.status(405).json({ message: 'Method Not Allowed' });
   }
 }

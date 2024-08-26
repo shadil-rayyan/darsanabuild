@@ -104,7 +104,7 @@ const Sidebar: React.FC = () => {
 
                     {showActivitiesMenu && (
                         <div className="ml-4 space-y-2">
-                            <Link href="/activities/programs" passHref>
+                            <Link href="/Activities/Program" passHref>
                                 <button
                                     className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/activities/programs'
                                         ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
@@ -140,7 +140,7 @@ const Sidebar: React.FC = () => {
                     )}
 
                     {/* Scholarships Button */}
-                    <Link href="/Scholarship" passHref>
+                    <Link href="/Scholarships" passHref>
                         <button
                             className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Scholarship'
                                 ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
@@ -152,7 +152,7 @@ const Sidebar: React.FC = () => {
                     </Link>
 
                     {/* Upcoming Button */}
-                    <Link href="/upcoming-hero-image" passHref>
+                    <Link href="/upcomingevent" passHref>
                         <button
                             className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/upcoming-hero-image'
                                 ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
@@ -164,7 +164,7 @@ const Sidebar: React.FC = () => {
                     </Link>
                     
                     {/* hero image Button */}
-                    <Link href="/-hero-image" passHref>
+                    <Link href="/heroimage" passHref>
                         <button
                             className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/upcoming-hero-image'
                                 ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa';
+import { useRouter } from 'next/navigation'; // Import useRouter
+import { FaEdit, FaEye, FaTrashAlt, FaPlus } from 'react-icons/fa';
 import Filter from '@/components/filter/filterc';
 import Bangalorechapter from "@/assets/chapter/bangalorechapterheroimage.png";
 import palkkadchapter from "@/assets/chapter/palkkadchapterheroimage.png";
@@ -51,6 +52,7 @@ const initialGalleryItems: Gallery[] = [
 ];
 
 const GalleryTable: React.FC = () => {
+  const router = useRouter(); // Initialize useRouter
   const [galleryItems, setGalleryItems] = useState<Gallery[]>(initialGalleryItems);
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -73,6 +75,11 @@ const GalleryTable: React.FC = () => {
     setExpandedImage(null);
   };
 
+  const handleAddImage = () => {
+    // Navigate to the Add Image page
+    router.push('/add'); // Adjust the path as needed
+  };
+
   // Filter the data based on the selected filters
   const filteredData = galleryItems.filter((item) => {
     // Extract year and month from the date
@@ -91,8 +98,18 @@ const GalleryTable: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 sm:px-8 mt-8 max-w-6xl">
-      {/* Filter Component */}
-      <Filter onFilterChange={(newFilters) => setFilters(newFilters)} />
+      <div className="flex items-center justify-between mb-4">
+        {/* Filter Component */}
+        <Filter onFilterChange={(newFilters) => setFilters(newFilters)} />
+        {/* Add Image Button */}
+        <button 
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700" 
+          onClick={handleAddImage}
+        >
+          <FaPlus size={16} />
+          <span>Add Image</span>
+        </button>
+      </div>
       <div className="py-8">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">

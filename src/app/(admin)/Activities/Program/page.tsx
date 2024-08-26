@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa';
 import Filter from '@/components/filter/filterc';
-import Bangalorechapter from "../../../assets/chapter/bangalorechapterheroimage.png";
-import palkkadchapter from "../../../assets/chapter/palkkadchapterheroimage.png";
+import Bangalorechapter from "@/assets/chapter/bangalorechapterheroimage.png";
+import palkkadchapter from "@/assets/chapter/palkkadchapterheroimage.png";
 
 interface Gallery {
   id: number;

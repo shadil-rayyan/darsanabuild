@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ChapterCard from "../../../components/chapter/chapterCard";
+import ChapterCard from "@/components/chapter/chapterCard";
 import Bangalorechapter from "../../../assets/chapter/bangalorechapterheroimage.png";
 import palkkadchapter from "../../../assets/chapter/palkkadchapterheroimage.png";
 import Omanchapter from "../../../assets/chapter/Omanchapterheroimage.png";
@@ -12,7 +12,7 @@ import calicutchapter from "../../../assets/chapter/calicutchapter.png";
 
 // Chapter data with slug mapping
 const chapters = [
-  { name: "Banglore", image: Bangalorechapter.src, slug: "Banglore" },
+  { name: "Banglore", image: Bangalorechapter.src, slug: "banglore" },
   { name: "Palakkad", image: palkkadchapter.src, slug: "Palakkad" },
   { name: "Calicut", image: calicutchapter.src, slug: "Calicut" },
   { name: "Oman", image: Omanchapter.src, slug: "Oman" },
