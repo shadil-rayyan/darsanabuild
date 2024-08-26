@@ -2,9 +2,9 @@ name: zapfull-security-scan
 
 on:
   push:
-    branches: [ master, main, shadil, shadilTest ]
+    branches: [ master, main, shadil, shadiltest ]
   pull_request:
-    branches: [ master, main, shadil, shadilTest ]
+    branches: [ master, main, shadil, shadiltest ]
 
 jobs:
   build:

@@ -4,50 +4,20 @@
   "sidebar": [
     {
       "title": "Introduction",
-      "link": "/docs/"
+      "link": "/"
     },
     {
       "title": "System Overview",
       "items": [
         {
           "title": "System Architecture",
-          "link": "/docs/system-architecture"
+          "link": "/system-architecture"
         },
         {
           "title": "Workflow",
-          "link": "/docs/workflow"
+          "link": "/workflow"
         }
       ]
-    },
-    {
-      "title": "Guides",
-      "items": [
-        {
-          "title": "Installation Guide",
-          "link": "/docs/installation"
-        },
-        {
-          "title": "Development Guidelines",
-          "link": "/docs/development-guidelines"
-        }
-      ]
-    },
-    {
-      "title": "Testing & Deployment",
-      "items": [
-        {
-          "title": "Testing",
-          "link": "/docs/testing"
-        },
-        {
-          "title": "Deployment",
-          "link": "/docs/deployment"
-        }
-      ]
-    },
-    {
-      "title": "Future Features",
-      "link": "/docs/future-features"
     }
   ]
 }

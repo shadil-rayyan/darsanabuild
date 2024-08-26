@@ -9,15 +9,15 @@ import {
   pgEnum,
 } from 'drizzle-orm/pg-core';
 
-const chapterEnum = pgEnum('chapter', [
-  'banglore',
-  'palkkad',
-  'uae',
-  'north america',
-  'calicut',
-  'oman',
-  'saudi',
-]);
+// const chapterEnum = pgEnum('chapter', [
+//   'banglore',
+//   'palkkad',
+//   'uae',
+//   'north america',
+//   'calicut',
+//   'oman',
+//   'saudi',
+// ]);
 
 // Define the schema for the 'conversation_details' table
 export const conversationDetails = pgTable('conversation_details', {

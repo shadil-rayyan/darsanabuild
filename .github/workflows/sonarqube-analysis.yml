@@ -5,12 +5,12 @@ on:
     branches:
       - main
       - shadil 
-      - shadilTest
+      - shadiltest
   pull_request:
     branches:
       - main
       - shadil 
-      - shadilTest
+      - shadiltest
 
 jobs:
   sonar:

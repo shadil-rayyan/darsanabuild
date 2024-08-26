@@ -32,7 +32,8 @@ export async function POST(request: Request) {
             subject,
             message,
             privacypolicy,
-            // Remove createdAt and updatedAt if they are not expected in the table schema
+            createdAt: new Date(),
+            updatedAt: new Date(),
         }).returning();
         console.log('New contact added:', newContact);
         

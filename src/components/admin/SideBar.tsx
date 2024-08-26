@@ -44,7 +44,7 @@ const Sidebar: React.FC = () => {
                     {/* Dashboard Button */}
                     <Link href="/dashboard" passHref>
                         <button
-                            className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/dashboard'
+                            className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Dashboard'
                                 ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                                 : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                 }`}
@@ -56,7 +56,7 @@ const Sidebar: React.FC = () => {
                     {/* Product Button */}
                     <button
                         onClick={() => setShowProductMenu(!showProductMenu)}
-                        className={`flex items-center w-full p-3 transition duration-300 ${pathname.startsWith('/adminProduct')
+                        className={`flex items-center w-full p-3 transition duration-300 ${pathname.startsWith('Product')
                             ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                             : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                             }`}
@@ -66,9 +66,9 @@ const Sidebar: React.FC = () => {
 
                     {showProductMenu && (
                         <div className="ml-4 space-y-2">
-                            <Link href="/products/list" passHref>
+                            <Link href="/Product/list" passHref>
                                 <button
-                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/products/list'
+                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Product/list'
                                         ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                         }`}
@@ -77,9 +77,9 @@ const Sidebar: React.FC = () => {
                                 </button>
                             </Link>
 
-                            <Link href="/products/add" passHref>
+                            <Link href="/Product/add" passHref>
                                 <button
-                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/products/add'
+                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Product/add'
                                         ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                         }`}
@@ -87,13 +87,14 @@ const Sidebar: React.FC = () => {
                                     Add Product
                                 </button>
                             </Link>
+                          
                         </div>
                     )}
 
                     {/* Activities Button */}
                     <button
                         onClick={() => setShowActivitiesMenu(!showActivitiesMenu)}
-                        className={`flex items-center w-full p-3 transition duration-300 ${pathname.startsWith('/activities')
+                        className={`flex items-center w-full p-3 transition duration-300 ${pathname.startsWith('/Activities')
                             ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                             : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                             }`}
@@ -114,9 +115,9 @@ const Sidebar: React.FC = () => {
                                 </button>
                             </Link>
 
-                            <Link href="/activities/conversation" passHref>
+                            <Link href="/Activities/Conversation" passHref>
                                 <button
-                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/activities/conversation'
+                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Activities/Conversation'
                                         ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                         }`}
@@ -125,9 +126,9 @@ const Sidebar: React.FC = () => {
                                 </button>
                             </Link>
 
-                            <Link href="/activities/gallery" passHref>
+                            <Link href="/Activities/Gallery" passHref>
                                 <button
-                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/activities/gallery'
+                                    className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Activities/Gallery'
                                         ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                         }`}
@@ -139,9 +140,9 @@ const Sidebar: React.FC = () => {
                     )}
 
                     {/* Scholarships Button */}
-                    <Link href="/scholarships" passHref>
+                    <Link href="/Scholarship" passHref>
                         <button
-                            className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/scholarships'
+                            className={`flex items-center w-full p-3 transition duration-300 ${pathname === '/Scholarship'
                                 ? 'bg-purple-100 text-purple-600 hover:bg-purple-200'
                                 : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                 }`}

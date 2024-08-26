@@ -3,27 +3,15 @@ import {
   serial,
   text,
   date,
-  boolean,
   pgTable,
-  pgEnum,
 } from 'drizzle-orm/pg-core';
 
-// Define an enum for the chapter field
-const chapterEnum = pgEnum('chapter', [
-  'banglore',
-  'palkkad',
-  'uae',
-  'north america',
-  'calicut',
-  'oman',
-  'saudi',
-]);
-
+// Define the gallery table
 export const gallery = pgTable('gallery', {
   id: serial('id').primaryKey(),
   name: text('name'),
-  Date: date('upload_date'),
+  uploadDate: date('upload_date'),
   category: text('category'),
-  chapter: chapterEnum('chapter'),
-  photoUrl: text('photo_url'),
+  chapter: text('chapter'),
+  photoUrl: text('photo_url'),  // Store URL or path to the image
 });
